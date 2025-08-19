@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { auth } from "../middleware/auth";
+import { searchMovies, saveMovie, listMovies, deleteMovie } from "../controllers/movieController";
+const router = Router();
+router.use(auth);
+router.get("/search", searchMovies);
+router.post("/save", saveMovie);
+router.get("/list", listMovies);
+router.delete("/:imdbID", deleteMovie);
+export default router;
